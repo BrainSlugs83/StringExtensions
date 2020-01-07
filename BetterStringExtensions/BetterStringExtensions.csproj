@@ -5,7 +5,7 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>Michael Jensen</Authors>
     <Company />
-    <Product />
+    <Product>BetterStringExtensions</Product>
     <Description>Common String and SecureString Extension Methods which include:
 ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
 
@@ -19,6 +19,9 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
     <Copyright>CC0</Copyright>
     <RootNamespace>System</RootNamespace>
     <ApplicationIcon>Yarn.ico</ApplicationIcon>
+    <PackageId>BetterStringExtensions</PackageId>
+    <AssemblyName>BetterStringExtensions</AssemblyName>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -30,6 +33,10 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="..\LICENSE">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
     <None Include="..\Yarn32x32.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>

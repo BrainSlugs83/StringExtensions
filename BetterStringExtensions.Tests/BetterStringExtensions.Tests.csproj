@@ -63,9 +63,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\StringExtensions\StringExtensions.csproj">
+    <ProjectReference Include="..\BetterStringExtensions\BetterStringExtensions.csproj">
       <Project>{bcf23e86-5930-4807-8a64-ca5965e57824}</Project>
-      <Name>StringExtensions</Name>
+      <Name>BetterStringExtensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
