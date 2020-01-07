@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Authors>Michael Jensen</Authors>
+    <Company />
+    <Product />
+    <Description>Common String and SecureString Extension Methods which include:
+ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
+
+Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/</Description>
+    <PackageIcon>Yarn32x32.png</PackageIcon>
+    <PackageIconUrl />
+    <PackageProjectUrl>https://github.com/BrainSlugs83/StringExtensions</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/BrainSlugs83/StringExtensions</RepositoryUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <PackageTags>String, ExtensionMethods, Common</PackageTags>
+    <Copyright>CC0</Copyright>
+    <RootNamespace>System</RootNamespace>
+    <ApplicationIcon>Yarn.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>C:\projects.git\StringExtensions\StringExtensions\StringExtensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>C:\projects.git\StringExtensions\StringExtensions\StringExtensions.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\Yarn32x32.png">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
+  </ItemGroup>
+
+</Project>
