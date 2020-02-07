@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BetterStringExtensions</name>
+    </assembly>
+    <members>
+        <member name="T:System.SecureStringExtensions">
+            <summary>
+            Extension Methods for working with the <see cref="T:System.Security.SecureString" /> class.
+            </summary>
+        </member>
+        <member name="M:System.SecureStringExtensions.ToInsecureString(System.Security.SecureString)">
+            <summary>
+            Converts a <see cref="T:System.Security.SecureString" /> into a <see cref="T:System.String" />.
+            </summary>
+            <param name="input">The input <see cref="T:System.Security.SecureString" />.</param>
+            <remarks>
+            WARNING: Although we do our best to keep the unmanaged data secure according to
+                     MSDN guidelines, due to the inherent immutability of the <see
+                     cref="T:System.String" /> class this process is NOT secure and defeats the
+                     purpose of using the <see cref="T:System.Security.SecureString" /> class.
+            </remarks>
+        </member>
+        <member name="M:System.SecureStringExtensions.ToSecureString(System.String)">
+            <summary>
+            Converts a <see cref="T:System.String" /> into a <see cref="T:System.Security.SecureString" />.
+            </summary>
+            <param name="input">The input <see cref="T:System.String" />.</param>
+            <remarks>
+            WARNING: A <see cref="T:System.Security.SecureString" /> object should never be constructed from
+                     a <see cref="T:System.String" />, because the sensitive data is already subject
+                     to the memory persistence consequences of the immutable <see
+                     cref="T:System.String" /> class. The best way to construct a <see
+                     cref="T:System.Security.SecureString" /> object is from a character-at-a-time unmanaged
+                     source, such as the <see cref="M:System.Console.ReadKey" /> method.
+            </remarks>
+        </member>
+        <member name="T:System.StringExtensions">
+            <summary>
+            Extension Methods for working with the <see cref="T:System.String">String</see> class.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.IsNullOrEmpty(System.String)">
+            <summary>
+            Calls <see cref="M:System.String.IsNullOrEmpty(System.String)"/>.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.IsNullOrWhiteSpace(System.String)">
+            <summary>
+            Calls <see cref="M:System.String.IsNullOrWhiteSpace(System.String)" />.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.EqualsIgnoreCase(System.String,System.String)">
+            <summary>
+            Compares two <see cref="T:System.String"/>s for equality, ignoring case.
+            </summary>
+        </member>
+        <member name="M:System.StringExtensions.ContainsIgnoreCase(System.String,System.String)">
+            <summary>
+            Returns a value indicating whether a specified substring value occurs within
+            the input string.
+            </summary>
+            <param name="input">The input string.</param>
+            <param name="substringValue">The substring value to seek.</param>
+            <returns>
+            <c>true</c> if the <paramref name="substringValue" /> parameter occurs within
+            the <paramref name="input" /> string, or if the <paramref name="substringValue"
+            /> is <see cref="F:System.String.Empty" />, or if both parameters are <c>null</c>;
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:System.StringExtensions.Before(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns a <see cref="T:System.String" /> composed of the characters which occur before
+            the first match of the <paramref name="search" /> <see cref="T:System.String" />.
+            </summary>
+            <returns>
+            If the <paramref name="input" /> contains 
+            <paramref name="search" />, then the substring that occurs before the 
+            match is returned.  Otherwise, <paramref name="input" /> is returned unmodified.
+            </returns>
+        </member>
+        <member name="M:System.StringExtensions.After(System.String,System.String,System.Boolean)">
+            <summary>
+            Returns a <see cref="T:System.String" /> composed of the characters which occur after
+            the first match of the <paramref name="search" /> <see cref="T:System.String" />.
+            </summary>
+            <returns>
+            If the <paramref name="input" /> contains <paramref name="search" />, then the
+            substring that occurs after the match is returned.  Otherwise, 
+            <paramref name="input" /> is returned unmodified.
+            </returns>
+        </member>
+    </members>
+</doc>

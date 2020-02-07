@@ -55,7 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CompressionUtils_Tests.cs" />
     <Compile Include="SecureStringExtensions_Tests.cs" />
+    <Compile Include="StringEncryptor_Tests.cs" />
     <Compile Include="StringExtensions_Tests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

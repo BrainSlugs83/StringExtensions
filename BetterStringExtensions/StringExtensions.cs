@@ -107,5 +107,42 @@ namespace System
 
             return input;
         }
+
+        private static string[] DecimalMeasurementSuffixes = new[]
+        {
+            "B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"
+        };
+
+        private static string[] BinaryMeasurementSuffixes = new[]
+        {
+            "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"
+        };
+
+        public static string ToHumanReadableFileSize(this long input, bool binary = true)
+        {
+            bool negative = false;
+            if (input < 0) { input *= -1; negative = true; }
+
+            double value = input;
+            double divisor = binary ? 1024d : 1000d;
+            int idx = 0;
+            int maxIdx = binary
+                ? BinaryMeasurementSuffixes.Length
+                : DecimalMeasurementSuffixes.Length;
+
+            while (value >= divisor && (idx + 1) < maxIdx)
+            {
+                value /= divisor;
+                idx++;
+            }
+
+            return (negative ? "-" : string.Empty)
+                + value.ToString("0.00") + " " +
+                (
+                    binary
+                    ? BinaryMeasurementSuffixes[idx]
+                    : DecimalMeasurementSuffixes[idx]
+                );
+        }
     }
 }
