@@ -22,6 +22,7 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
     <PackageId>BetterStringExtensions</PackageId>
     <AssemblyName>BetterStringExtensions</AssemblyName>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
