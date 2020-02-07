@@ -10,7 +10,7 @@
 ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
 
 Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/</Description>
-    <PackageIcon>Yarn32x32.png</PackageIcon>
+    <PackageIcon>Yarn96x96.png</PackageIcon>
     <PackageIconUrl />
     <PackageProjectUrl>https://github.com/BrainSlugs83/StringExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BrainSlugs83/StringExtensions</RepositoryUrl>
@@ -37,7 +37,7 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
-    <None Include="..\Yarn32x32.png">
+    <None Include="..\Yarn96x96.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
