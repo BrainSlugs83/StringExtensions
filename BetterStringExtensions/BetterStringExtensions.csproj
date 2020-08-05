@@ -6,10 +6,12 @@
     <Authors>Michael Jensen</Authors>
     <Company />
     <Product>BetterStringExtensions</Product>
-    <Description>Common String and SecureString Extension Methods which include:
-ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
+    <Description>
+      Common String and SecureString Extension Methods which include:
+      ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
 
-Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/</Description>
+      Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/
+    </Description>
     <PackageIcon>Yarn96x96.png</PackageIcon>
     <PackageIconUrl />
     <PackageProjectUrl>https://github.com/BrainSlugs83/StringExtensions</PackageProjectUrl>
@@ -22,15 +24,15 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
     <PackageId>BetterStringExtensions</PackageId>
     <AssemblyName>BetterStringExtensions</AssemblyName>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>C:\projects.git\StringExtensions\StringExtensions\StringExtensions.xml</DocumentationFile>
+    <DocumentationFile>$(TargetDir)\BetterStringExtensions.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>C:\projects.git\StringExtensions\StringExtensions\StringExtensions.xml</DocumentationFile>
+    <DocumentationFile>$(TargetDir)\BetterStringExtensions.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -43,5 +45,4 @@ Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-30940
       <PackagePath></PackagePath>
     </None>
   </ItemGroup>
-
 </Project>
