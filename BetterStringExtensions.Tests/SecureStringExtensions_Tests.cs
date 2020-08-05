@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringExtensions.Tests
+namespace BetterStringExtensions.Tests
 {
     [TestClass]
     [ExcludeFromCodeCoverage]

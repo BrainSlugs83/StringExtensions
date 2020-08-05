@@ -7,8 +7,16 @@ using System.Text;
 
 namespace System
 {
+    /// <summary>
+    /// Utility Methods for working with Embedded Resources.
+    /// </summary>
     public static class ResourceUtils
     {
+        /// <summary>
+        /// Searches for a resource by name, and returns to raw binary data of that resource.
+        /// </summary>
+        /// <param name="resourceName">The name of the resource.</param>
+        /// <param name="resourceAssembly">(Optional) the resource assembly to search.</param>
         public static byte[] GetResourceContentAsBytes(string resourceName, Assembly resourceAssembly = null)
         {
             byte[] result = null;
@@ -28,6 +36,11 @@ namespace System
             return result;
         }
 
+        /// <summary>
+        /// Searches for a resource by name, and returns the text contents of that resource.
+        /// </summary>
+        /// <param name="resourceName">The name of the resource.</param>
+        /// <param name="resourceAssembly">(Optional) the resource assembly to search.</param>
         public static string GetResourceContentAsString(string resourceName, Assembly resourceAssembly = null)
         {
             string result = null;
@@ -45,6 +58,12 @@ namespace System
             return result;
         }
 
+        /// <summary>
+        /// Searches for a resource by name, and returns to raw binary stream that can be used to
+        /// access that resource.
+        /// </summary>
+        /// <param name="resourceName">The name of the resource.</param>
+        /// <param name="resourceAssembly">(Optional) the resource assembly to search.</param>
         public static Stream GetResourceContentAsStream(string resourceName, Assembly resourceAssembly = null)
         {
             Stream result = null;
@@ -64,7 +83,8 @@ namespace System
             }
             else
             {
-                // The "." on both sides of the name is very important; otherwise you could get partial matches.
+                // The "." on both sides of the name is very important; otherwise you could get
+                // partial matches.
                 resourceName = ('.' + resourceName.TrimStart('.')).ToUpperInvariant();
                 foreach (var fqName in resourceAssembly.GetManifestResourceNames())
                 {
@@ -78,6 +98,5 @@ namespace System
 
             return result;
         }
-
     }
 }

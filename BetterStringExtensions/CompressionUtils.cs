@@ -5,8 +5,15 @@ using System.Text;
 
 namespace System.IO.Compression
 {
+    /// <summary>
+    /// Utilities for Compressing and Decompressing strings.
+    /// </summary>
     public static class CompressionUtils
     {
+        /// <summary>
+        /// Decompresses an array of bytes into a string of text using the GZip compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
         public static string GUnzipString(byte[] input)
         {
             if (input == null) { return null; }
@@ -18,6 +25,10 @@ namespace System.IO.Compression
             }
         }
 
+        /// <summary>
+        /// Compresses a string of text, into an array of bytes using the GZip compression method.
+        /// </summary>
+        /// <param name="input">The input string.</param>
         public static byte[] GZipString(string input)
         {
             return (input is null)
@@ -25,6 +36,10 @@ namespace System.IO.Compression
                 : GZipBytes(Encoding.UTF8.GetBytes(input));
         }
 
+        /// <summary>
+        /// Decompresses an array of bytes using the GZip compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
         public static byte[] GUnzipBytes(byte[] input)
         {
             if (input == null) { return null; }
@@ -37,6 +52,11 @@ namespace System.IO.Compression
             }
         }
 
+        /// <summary>
+        /// Compresses an array of bytes using the GZip compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
+        /// <returns></returns>
         public static byte[] GZipBytes(byte[] input)
         {
             if (input == null) { return null; }
@@ -46,14 +66,17 @@ namespace System.IO.Compression
             {
                 cs.Write(input, 0, input.Length);
 
-                // *REQUIRED* or last chunk will be omitted. Do NOT call any other close or
-                // flush method.
+                // *REQUIRED* or last chunk will be omitted. Do NOT call any other close or flush method.
                 cs.Close();
 
                 return ms.ToArray();
             }
         }
 
+        /// <summary>
+        /// Decompresses an array of bytes into a string of text using the Deflate compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
         public static string InflateString(byte[] input)
         {
             if (input == null) { return null; }
@@ -65,6 +88,10 @@ namespace System.IO.Compression
             }
         }
 
+        /// <summary>
+        /// Compresses a string of text, into an array of bytes using the Deflate compression method.
+        /// </summary>
+        /// <param name="input">The input string.</param>
         public static byte[] DeflateString(string input)
         {
             return (input is null)
@@ -72,6 +99,10 @@ namespace System.IO.Compression
                 : DeflateBytes(Encoding.UTF8.GetBytes(input));
         }
 
+        /// <summary>
+        /// Decompresses an array of bytes using the Deflate compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
         public static byte[] InflateBytes(byte[] input)
         {
             if (input == null) { return null; }
@@ -84,6 +115,10 @@ namespace System.IO.Compression
             }
         }
 
+        /// <summary>
+        /// Compresses an array of bytes using the Deflate compression method.
+        /// </summary>
+        /// <param name="input">The input byte array.</param>
         public static byte[] DeflateBytes(byte[] input)
         {
             if (input == null) { return null; }
@@ -93,8 +128,7 @@ namespace System.IO.Compression
             {
                 cs.Write(input, 0, input.Length);
 
-                // *REQUIRED* or last chunk will be omitted. Do NOT call any other close or
-                // flush method.
+                // *REQUIRED* or last chunk will be omitted. Do NOT call any other close or flush method.
                 cs.Close();
 
                 return ms.ToArray();

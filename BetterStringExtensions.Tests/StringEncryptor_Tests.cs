@@ -8,20 +8,22 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringExtensions.Tests
+namespace BetterStringExtensions.Tests
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
     public class StringEncryptor_Tests
     {
-        const string input = "The quick brown fox 🦊 jumps over the lazy dog 🐶!\r\n"
+        private const string input = "The quick brown fox 🦊 jumps over the lazy dog 🐶!\r\n"
             + "The quick brown dog 🐶 jumps over the lazy fox 🦊!";
 
         [TestMethod]
         public void RoundTripTest()
         {
-            var sr = new StringEncryptor();
-            sr.Password = "DEMO TEST";
+            var sr = new StringEncryptor
+            {
+                Password = "DEMO TEST"
+            };
 
             var encrypted = sr.EncryptString(input);
             Assert.AreNotEqual(input, encrypted);
@@ -33,8 +35,10 @@ namespace StringExtensions.Tests
         [TestMethod]
         public void WrongSeedTest()
         {
-            var sr = new StringEncryptor();
-            sr.Password = "DEMO TEST";
+            var sr = new StringEncryptor
+            {
+                Password = "DEMO TEST"
+            };
 
             var encrypted = sr.EncryptString(input);
             Assert.AreNotEqual(input, encrypted);
@@ -49,8 +53,10 @@ namespace StringExtensions.Tests
         [ExpectedException(typeof(CryptographicException))]
         public void WrongSaltTest()
         {
-            var sr = new StringEncryptor();
-            sr.Password = "DEMO TEST";
+            var sr = new StringEncryptor
+            {
+                Password = "DEMO TEST"
+            };
 
             var encrypted = sr.EncryptString(input);
             Assert.AreNotEqual(input, encrypted);
@@ -63,8 +69,10 @@ namespace StringExtensions.Tests
         [ExpectedException(typeof(CryptographicException))]
         public void WrongPasswordTest()
         {
-            var sr = new StringEncryptor();
-            sr.Password = "DEMO TEST";
+            var sr = new StringEncryptor
+            {
+                Password = "DEMO TEST"
+            };
 
             var encrypted = sr.EncryptString(input);
             Assert.AreNotEqual(input, encrypted);

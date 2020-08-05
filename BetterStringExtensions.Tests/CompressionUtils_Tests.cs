@@ -7,13 +7,13 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringExtensions.Tests
+namespace BetterStringExtensions.Tests
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
     public class CompressionUtils_Tests
     {
-        const string input = "The quick brown fox 🦊 jumps over the lazy dog 🐶!\r\n"
+        private const string input = "The quick brown fox 🦊 jumps over the lazy dog 🐶!\r\n"
             + "The quick brown dog 🐶 jumps over the lazy fox 🦊!";
 
         [TestMethod]

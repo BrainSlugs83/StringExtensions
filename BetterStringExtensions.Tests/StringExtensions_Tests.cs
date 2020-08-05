@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace StringExtensions.Tests
+namespace BetterStringExtensions.Tests
 {
     [TestClass]
     [ExcludeFromCodeCoverage]
@@ -134,6 +134,238 @@ namespace StringExtensions.Tests
 
             Assert.AreEqual("Hello".After("h"), "Hello");
             Assert.AreEqual("The quick brown fox jumps over the lazy dog.".After("FoX", true), " jumps over the lazy dog.");
+        }
+
+        [TestMethod]
+        public void AfterIgnoreCase()
+        {
+            Assert.AreEqual("Hello".AfterIgnoreCase("h"), "ello");
+            Assert.AreEqual("Hello".AfterIgnoreCase("H"), "ello");
+        }
+
+        [TestMethod]
+        public void BeforeIgnoreCase()
+        {
+            Assert.AreEqual("Hello".BeforeIgnoreCase("e"), "H");
+            Assert.AreEqual("Hello".BeforeIgnoreCase("E"), "H");
+        }
+
+        [TestMethod]
+        public void StartsWithIgnoreCase()
+        {
+            Assert.IsTrue("Hello".StartsWithIgnoreCase("he"));
+            Assert.IsTrue("Hello".StartsWithIgnoreCase("HE"));
+            Assert.IsTrue("Hello".StartsWithIgnoreCase("hE"));
+            Assert.IsFalse("Hello".StartsWithIgnoreCase("LLO"));
+        }
+
+        [TestMethod]
+        public void EndsWithIgnoreCase()
+        {
+            Assert.IsTrue("Hello".EndsWithIgnoreCase("lo"));
+            Assert.IsTrue("Hello".EndsWithIgnoreCase("LO"));
+            Assert.IsTrue("Hello".EndsWithIgnoreCase("lO"));
+            Assert.IsFalse("Hello".EndsWithIgnoreCase("HE"));
+        }
+
+        [TestMethod]
+        public void ReplaceIgnoreCase()
+        {
+            Assert.AreEqual
+            (
+                "TAST",
+                "TEST".ReplaceIgnoreCase("e", "A")
+            );
+
+            Assert.AreEqual
+            (
+                "tast",
+                "test".ReplaceIgnoreCase("E", "a")
+            );
+
+            Assert.AreEqual
+            (
+                "tfst",
+                "test".ReplaceIgnoreCase("E", s => ((char)(s[0] + 1)).ToString())
+            );
+
+            Assert.AreEqual
+            (
+                "[0:5], World!",
+                "Hello, World!".ReplaceIgnoreCase("heLLo", (i, s) => $"[{i}:{s.Length}]")
+            );
+
+            Assert.AreEqual
+            (
+                "World!",
+                "Hello, World!".ReplaceIgnoreCase("heLLo, ", (string)null)
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".ReplaceIgnoreCase(string.Empty, "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".ReplaceIgnoreCase((string)null, "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".ReplaceIgnoreCase((string)null, x => "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".ReplaceIgnoreCase((string)null, (i, x) => "_")
+            );
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ReplaceIgnoreCase_Args1()
+        {
+            ((string)null).ReplaceIgnoreCase(string.Empty, string.Empty);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ReplaceIgnoreCase_Args2()
+        {
+            ((string)null).ReplaceIgnoreCase(string.Empty, x => x);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void ReplaceIgnoreCase_Args3()
+        {
+            ((string)null).ReplaceIgnoreCase(string.Empty, (i, x) => x);
+        }
+
+        [TestMethod]
+        public void RegexReplace()
+        {
+            Assert.AreEqual
+            (
+                "TAST",
+                "TEST".RegexReplace("e", "A")
+            );
+
+            Assert.AreEqual
+            (
+                "tast",
+                "test".RegexReplace("E", "a")
+            );
+
+            Assert.AreEqual
+            (
+                "tfst",
+                "test".RegexReplace("E", s => ((char)(s[0] + 1)).ToString())
+            );
+
+            Assert.AreEqual
+            (
+                "[0:5], [7:5]!",
+                "Hello, World!".RegexReplace("[A-Z]+", (i, s) => $"[{i}:{s.Length}]")
+            );
+
+            Assert.AreEqual
+            (
+                "[Hello:5], [World:5]!",
+                "Hello, World!".RegexReplace("[A-Z]+", s => $"[{s}:{s.Length}]")
+            );
+
+            Assert.AreEqual
+            (
+                "World!",
+                "Hello, World!".RegexReplace("heLLo, ", (string)null)
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".RegexReplace(string.Empty, "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".RegexReplace((string)null, "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".RegexReplace((string)null, x => "_")
+            );
+
+            Assert.AreEqual
+            (
+                "_H_e_l_l_o_,_ _W_o_r_l_d_!_",
+                "Hello, World!".RegexReplace((string)null, (i, x) => "_")
+            );
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void RegexReplace_Args1()
+        {
+            ((string)null).RegexReplace(string.Empty, string.Empty);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void RegexReplace_Args2()
+        {
+            ((string)null).RegexReplace(string.Empty, x => x);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void RegexReplace_Args3()
+        {
+            ((string)null).RegexReplace(string.Empty, (i, x) => x);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void RegexReplace_Args4()
+        {
+            string.Empty.RegexReplace(string.Empty, (Func<string, string>)null);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void RegexReplace_Args5()
+        {
+            string.Empty.RegexReplace(string.Empty, (Func<int, string, string>)null);
+        }
+
+        [TestMethod]
+        public void ToHumanReadableFileSize()
+        {
+            Assert.AreEqual
+            (
+                "1.00 KiB",
+                1024L.ToHumanReadableFileSize(true)
+            );
+
+            Assert.AreEqual
+            (
+                "1.00 MB",
+                (1000L * 1000L).ToHumanReadableFileSize(false)
+            );
+
+            Assert.AreEqual
+            (
+                "-25 B",
+                (-25L).ToHumanReadableFileSize(false)
+            );
         }
     }
 }
