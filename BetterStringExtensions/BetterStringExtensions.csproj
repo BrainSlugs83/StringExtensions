@@ -17,7 +17,7 @@
     <PackageProjectUrl>https://github.com/BrainSlugs83/StringExtensions</PackageProjectUrl>
     <RepositoryUrl>https://github.com/BrainSlugs83/StringExtensions</RepositoryUrl>
     <RepositoryType>GitHub</RepositoryType>
-    <PackageTags>String, ExtensionMethods, Common</PackageTags>
+    <PackageTags>String, ExtensionMethods, Common, Encryption, Compression, Levenshtein Distance, Case Insensitive Comparison, Fuzzy Comparison</PackageTags>
     <Copyright>CC0</Copyright>
     <RootNamespace>System</RootNamespace>
     <ApplicationIcon>Yarn.ico</ApplicationIcon>
