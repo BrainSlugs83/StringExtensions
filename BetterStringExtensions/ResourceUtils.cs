@@ -13,6 +13,18 @@ namespace System
     public static class ResourceUtils
     {
         /// <summary>
+        /// Gets the set of default assemblies that will be searched when no specific assemblies are specified.
+        /// </summary>
+        public static HashSet<Assembly> DefaultAssemblies { get; } = new HashSet<Assembly>
+        (
+            new[]
+            {
+                Assembly.GetExecutingAssembly(),
+                Assembly.GetCallingAssembly()
+            }
+        );
+
+        /// <summary>
         /// Searches for a resource by name, and returns to raw binary data of that resource.
         /// </summary>
         /// <param name="resourceName">The name of the resource.</param>
@@ -69,13 +81,7 @@ namespace System
             Stream result = null;
             if (resourceAssembly == null)
             {
-                var asms = new HashSet<Assembly>
-                {
-                    Assembly.GetCallingAssembly(),
-                    Assembly.GetExecutingAssembly()
-                };
-
-                foreach (var asm2 in asms.Where(a => a != null).Distinct())
+                foreach (var asm2 in DefaultAssemblies)
                 {
                     result = GetResourceContentAsStream(resourceName, asm2);
                     if (result != null) { break; }
@@ -88,7 +94,7 @@ namespace System
                 resourceName = ('.' + resourceName.TrimStart('.')).ToUpperInvariant();
                 foreach (var fqName in resourceAssembly.GetManifestResourceNames())
                 {
-                    if (fqName.ToUpperInvariant().EndsWith(resourceName))
+                    if (("." + fqName).EndsWithIgnoreCase(resourceName))
                     {
                         result = resourceAssembly.GetManifestResourceStream(fqName);
                         break;

@@ -2,3 +2,6 @@
 
 # CS0419: Ambiguous reference in cref attribute
 dotnet_diagnostic.CS0419.severity = silent
+
+# CA1820: Test for empty strings using string length
+dotnet_diagnostic.CA1820.severity = silent

@@ -47,8 +47,9 @@ namespace System
         /// </returns>
         public static bool ContainsIgnoreCase(this string input, string substringValue)
         {
-            if (input == null || substringValue == null) { return input == substringValue; }
-            return input.IndexOf(substringValue, StringComparison.InvariantCultureIgnoreCase) >= 0;
+            return (input == null || substringValue == null)
+                ? input == substringValue
+                : input.IndexOf(substringValue, StringComparison.InvariantCultureIgnoreCase) >= 0;
         }
 
         /// <summary>
