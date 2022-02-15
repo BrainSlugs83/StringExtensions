@@ -6,12 +6,13 @@
 		<Authors>Michael Jensen</Authors>
 		<Company />
 		<Product>BetterStringExtensions</Product>
-		<Description>
-			Common String and SecureString Extension Methods which include:
-			ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, IsNullOrEmpty, and IsNullOrWhiteSpace.
+		<Description>Common String, SecureString, and Collection Extension Methods which include:
+ToSecureString, ToInsecureString, EqualsIgnoreCase, ContainsIgnoreCase, Before, After, FuzzyEquals, IsNullOrEmpty, and IsNullOrWhiteSpace.
 
-			Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/
-		</Description>
+Additionally there are helper methods and classes that simplify working with Embedded Resources, Compression, and Encryption.
+
+Ball of Yarn icon source: https://pixabay.com/vectors/yarn-ball-needles-wool-craft-309401/
+Icon has been changed to purple to match Visual Studio's theme, and to distinguish this project from anything else which may be using a similar logo.</Description>
 		<PackageIcon>Yarn96x96.png</PackageIcon>
 		<PackageIconUrl />
 		<PackageProjectUrl>https://github.com/BrainSlugs83/StringExtensions</PackageProjectUrl>
@@ -24,8 +25,10 @@
 		<PackageId>BetterStringExtensions</PackageId>
 		<AssemblyName>BetterStringExtensions</AssemblyName>
 		<PackageLicenseFile>LICENSE</PackageLicenseFile>
-		<Version>1.0.2</Version>
+		<Version>1.0.3</Version>
 		<LangVersion>Latest</LangVersion>
+		<AssemblyVersion>1.0.3.0</AssemblyVersion>
+		<FileVersion>1.0.3.0</FileVersion>
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
